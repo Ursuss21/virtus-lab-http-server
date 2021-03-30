@@ -13,6 +13,8 @@ Project was created to fulfill VirtusLab internship recruitment task requirement
 
 ## Technologies
 * Go 1.16.2
+* urfave/cli v1 (github.com/urfave/cli)
+
 
 ## Setup
 Make sure that in the directory with your `virtus-lab-http-server.exe` there is a directory `static` with files, that you want to serve. To run the server open command line, go to the location of your `virtus-lab-http-server.exe` and type in `virtus-lab-http-server.exe run --file <file_you_want_to_serve>`.
