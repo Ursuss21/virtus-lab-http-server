@@ -21,6 +21,7 @@ Make sure that in the directory with your `virtus-lab-http-server.exe` there is 
 
 ### version
 `virtus-lab-http-server.exe version`
+
 Shows current version of project.
 ```
 1.0.0
@@ -28,6 +29,7 @@ Shows current version of project.
 
 ### help
 `virtus-lab-http-server.exe help`
+
 Shows help for the project.
 ```
 NAME:
@@ -51,6 +53,7 @@ GLOBAL OPTIONS:
 
 ### run --file <file>
 `virtus-lab-http-server.exe run --file index.html`
+
 Starts `localhost` server on port `8080`
 ```
 Starting server at port 8080
