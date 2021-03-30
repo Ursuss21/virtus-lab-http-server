@@ -9,6 +9,7 @@ import (
 )
 
 var app = cli.NewApp()
+const staticDir = "./static/"
 
 func info(){
 	app.Name = "Simple CLI"
@@ -17,8 +18,9 @@ func info(){
 }
 
 func runServer(fileName string){
-	fmt.Println(fileName)
-	http.Handle(fileName, http.StripPrefix(fileName,http.FileServer(http.Dir("static"))))
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
+		http.ServeFile(w, r, staticDir+fileName)
+	})
 
 	fmt.Printf("Starting server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
@@ -54,7 +56,6 @@ func commands(){
 		
 	}
 }
-
 
 func main(){
 	info()
