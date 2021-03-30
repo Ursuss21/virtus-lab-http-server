@@ -10,20 +10,6 @@ import (
 
 var app = cli.NewApp()
 
-// func helloHandler(w http.ResponseWriter, r *http.Request){
-// 	if r.URL.Path != "/hello"{
-// 		http.Error(w, "404 not found", http.StatusNotFound)
-// 		return
-// 	}
-
-// 	if r.Method != "GET" {
-// 		http.Error(w, "Method is not supported.", http.StatusNotFound)
-// 		return
-// 	}
-
-// 	fmt.Fprintf(w, "Hello!")
-// }
-
 func info(){
 	app.Name = "Simple CLI"
 	app.Usage = "CLI project for VirtusLab"
@@ -32,8 +18,7 @@ func info(){
 
 func runServer(fileName string){
 	fmt.Println(fileName)
-	fileServer := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileServer)
+	http.Handle(fileName, http.StripPrefix(fileName,http.FileServer(http.Dir("static"))))
 
 	fmt.Printf("Starting server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
